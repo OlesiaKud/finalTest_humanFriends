@@ -1,0 +1,158 @@
+1. Использование команды cat в Linux
+olesya@olesya-k:~$ nano Pets 
+olesya@olesya-k:~$ cat >> Pack_animals
+лошадь
+верблюд
+осел 
+olesya@olesya-k:~$ cat Pets Pack_animals > Human_friends
+olesya@olesya-k:~$ nano 
+olesya@olesya-k:~$ nano Human_friends 
+olesya@olesya-k:~$ ls
+app.py               Dockerfile  Human_friends  Pets      shared      Templates
+Desktop              Documents   Music          Pictures  snap        test
+docker-compose.yaml  Downloads   Pack_animals   Public    sql-folder  Videos
+olesya@olesya-k:~$
+
+
+2. Работа  с директориями
+olesya@olesya-k:~$ mkdir human_friends
+olesya@olesya-k:~$ cd human_friends/
+olesya@olesya-k:~/human_friends$ pwd
+/home/olesya/human_friends
+olesya@olesya-k:~/human_friends$ cd ..
+olesya@olesya-k:~$ mv Human_friends /home/olesya/human_friends
+olesya@olesya-k:~$ cd human_friends/
+olesya@olesya-k:~/human_friends$ ls
+Human_friends
+olesya@olesya-k:~/human_friends$ cd ..
+olesya@olesya-k:~$ rm Pack_animals Pets
+olesya@olesya-k:~$ ls
+app.py               Dockerfile  human_friends  Public  sql-folder  Videos
+Desktop              Documents   Music          shared  Templates
+docker-compose.yaml  Downloads   Pictures       snap    test
+olesya@olesya-k:~$ 
+
+3. Работа с MySQL
+Инструкцию по подключению я взяла https://dev.mysql.com/doc/mysql-apt-repo-quick-guide/en/
+olesya@olesya-k:~$ cd /etc/apt/
+olesya@olesya-k:/etc/apt$ ls
+apt.conf.d   preferences.d            sources.list.d  trusted.gpg.d
+auth.conf.d  sources.list             trusted.gpg
+keyrings     sources.list.curtin.old  trusted.gpg~
+olesya@olesya-k:/etc/apt$ cd sources.list.d/
+olesya@olesya-k:/etc/apt/sources.list.d$ sudo nano mysql.list 
+[sudo] password for olesya: 
+olesya@olesya-k:/etc/apt/sources.list.d$ sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 3A79BD29
+olesya@olesya-k:/etc/apt/sources.list.d$ sudo apt update
+
+
+4. Управление с deb-пакетами
+olesya@olesya-k:~$ wget https://download.virtualbox.org/virtualbox/7.0.14/virtualbox-7.0_7.0.14-161095~Ubuntu~jammy_amd64.deb
+--2024-03-27 11:56:54--  https://download.virtualbox.org/virtualbox/7.0.14/virtualbox-7.0_7.0.14-161095~Ubuntu~jammy_amd64.deb
+Resolving download.virtualbox.org (download.virtualbox.org)... 23.34.232.78
+Connecting to download.virtualbox.org (download.virtualbox.org)|23.34.232.78|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 92870852 (89M) [text/plain]
+Saving to: ‘virtualbox-7.0_7.0.14-161095~Ubuntu~jammy_amd64.deb’
+virtualbox-7.0_7.0. 100%[===================>]  88.57M  6.49MB/s    in 15s     
+2024-03-27 11:57:09 (6.02 MB/s) - ‘virtualbox-7.0_7.0.14-161095~Ubuntu~jammy_amd64.deb’ saved [92870852/92870852]
+
+olesya@olesya-k:~$ ls
+app.py               Public
+Desktop              shared
+docker-compose.yaml  snap
+Dockerfile           sql-folder
+Documents            Templates
+Downloads            test
+human_friends        Videos
+Music                virtualbox-7.0_7.0.14-161095~Ubuntu~jammy_amd64.deb
+Pictures
+
+olesya@olesya-k:~$ sudo dpkg -i virtualbox-7.0_7.0.14-161095~Ubuntu~jammy_amd64.deb
+[sudo] password for olesya: 
+Selecting previously unselected package virtualbox-7.0.
+(Reading database ... 147826 files and directories currently installed.)
+Preparing to unpack virtualbox-7.0_7.0.14-161095~Ubuntu~jammy_amd64.deb ...
+Unpacking virtualbox-7.0 (7.0.14-161095~Ubuntu~jammy) ...
+dpkg: dependency problems prevent configuration of virtualbox-7.0:
+ virtualbox-7.0 depends on libqt5core5a (>= 5.15.1); however:
+  Package libqt5core5a is not installed.
+
+dpkg: error processing package virtualbox-7.0 (--install):
+ dependency problems - leaving unconfigured
+Processing triggers for mailcap (3.70+nmu1ubuntu1) ...
+Processing triggers for gnome-menus (3.36.0-1.1ubuntu1) ...
+Processing triggers for desktop-file-utils (0.26-1ubuntu5) ...
+Processing triggers for hicolor-icon-theme (0.17-2) ...
+Processing triggers for shared-mime-info (2.2-1) ...
+Errors were encountered while processing:
+ virtualbox-7.0
+
+olesya@olesya-k:~$ sudo apt -f install
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+Correcting dependencies... Done
+The following additional packages will be installed:
+  libdouble-conversion3 libmd4c0 libpcre2-16-0 libqt5core5a libqt5dbus5
+  libqt5gui5 libqt5help5 libqt5network5 libqt5opengl5 libqt5printsupport5
+  libqt5qml5 libqt5qmlmodels5 libqt5quick5 libqt5sql5 libqt5sql5-sqlite
+  libqt5svg5 libqt5waylandclient5 libqt5waylandcompositor5 libqt5widgets5
+  libqt5x11extras5 libqt5xml5 libxcb-xinerama0 libxcb-xinput0
+  qt5-gtk-platformtheme qttranslations5-l10n qtwayland5
+Suggested packages:
+  qgnomeplatform-qt5 qt5-image-formats-plugins qt5-qmltooling-plugins
+The following NEW packages will be installed:
+  libdouble-conversion3 libmd4c0 libpcre2-16-0 libqt5core5a libqt5dbus5
+  libqt5gui5 libqt5help5 libqt5network5 libqt5opengl5 libqt5printsupport5
+  libqt5qml5 libqt5qmlmodels5 libqt5quick5 libqt5sql5 libqt5sql5-sqlite
+  libqt5svg5 libqt5waylandclient5 libqt5waylandcompositor5 libqt5widgets5
+  libqt5x11extras5 libqt5xml5 libxcb-xinerama0 libxcb-xinput0
+  qt5-gtk-platformtheme qttranslations5-l10n qtwayland5
+0 upgraded, 26 newly installed, 0 to remove and 100 not upgraded.
+1 not fully installed or removed.
+Need to get 17.1 MB of archives.
+After this operation, 68.3 MB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://ru.archive.ubuntu.com/ubuntu mantic/universe amd64 libdouble-conversion3 amd64 3.3.0-1 [39.9 kB]
+
+There were problems setting up VirtualBox.  To re-start the set-up process, run
+  /sbin/vboxconfig
+as root.  If your system is using EFI Secure Boot you may need to sign the
+kernel modules (vboxdrv, vboxnetflt, vboxnetadp, vboxpci) before you can load
+them. Please see your Linux system's documentation for more information.
+Setting up qtwayland5:amd64 (5.15.10-2) ...
+Processing triggers for libc-bin (2.38-1ubuntu6.1) ...
+
+olesya@olesya-k:~$ wget -O- https://www.virtualbox.org/download/oracle_vbox_2016.asc | sudo gpg --yes --output /usr/share/keyrings/oracle-virtualbox-2016.gpg --dearmor
+--2024-03-27 12:05:08--  https://www.virtualbox.org/download/oracle_vbox_2016.asc
+Resolving www.virtualbox.org (www.virtualbox.org)... 23.52.30.155, 2a02:2d8:0:7996::37b7, 2a02:2d8:0:798b::37b7
+Connecting to www.virtualbox.org (www.virtualbox.org)|23.52.30.155|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 3157 (3.1K) [application/pgp-signature]
+Saving to: ‘STDOUT’
+-                        100%[================================>]   3.08K  --.-KB/s    in 0s      
+2024-03-27 12:05:10 (56.0 MB/s) - written to stdout [3157/3157]
+
+olesya@olesya-k:~$ sudo apt update
+
+Hit:1 http://ru.archive.ubuntu.com/ubuntu mantic InRelease
+Hit:2 http://ru.archive.ubuntu.com/ubuntu mantic-updates InRelease           
+Hit:3 http://ru.archive.ubuntu.com/ubuntu mantic-backports InRelease                             
+Hit:4 http://security.ubuntu.com/ubuntu mantic-security InRelease                                
+Hit:5 https://download.docker.com/linux/ubuntu mantic InRelease
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+100 packages can be upgraded. Run 'apt list --upgradable' to see them.
+
+olesya@olesya-k:~$ sudo dpkg -r virtualbox-7.0
+(Reading database ... 149148 files and directories currently installed.)
+Removing virtualbox-7.0 (7.0.14-161095~Ubuntu~jammy) ...
+Processing triggers for shared-mime-info (2.2-1) ...
+Processing triggers for hicolor-icon-theme (0.17-2) ...
+Processing triggers for mailcap (3.70+nmu1ubuntu1) ...
+Processing triggers for gnome-menus (3.36.0-1.1ubuntu1) ...
+Processing triggers for desktop-file-utils (0.26-1ubuntu5) ...
+
+
