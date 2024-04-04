@@ -33,12 +33,8 @@ docker-compose.yaml  Downloads   Pictures       snap    test
 Инструкцию по подключению я взяла https://dev.mysql.com/doc/mysql-apt-repo-quick-guide/en/
 olesya@olesya-k:~$ cd /etc/apt/
 olesya@olesya-k:/etc/apt$ ls
-apt.conf.d   preferences.d            sources.list.d  trusted.gpg.d
-auth.conf.d  sources.list             trusted.gpg
-keyrings     sources.list.curtin.old  trusted.gpg~
 olesya@olesya-k:/etc/apt$ cd sources.list.d/
 olesya@olesya-k:/etc/apt/sources.list.d$ sudo nano mysql.list 
-[sudo] password for olesya: 
 olesya@olesya-k:/etc/apt/sources.list.d$ sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 3A79BD29
 olesya@olesya-k:/etc/apt/sources.list.d$ sudo apt update
 
@@ -57,24 +53,10 @@ Music                virtualbox-7.0_7.0.14-161095~Ubuntu~jammy_amd64.deb
 Pictures
 
 olesya@olesya-k:~$ sudo dpkg -i virtualbox-7.0_7.0.14-161095~Ubuntu~jammy_amd64.deb
-[sudo] password for olesya: 
-
-Do you want to continue? [Y/n] y
-Processing triggers for libc-bin (2.38-1ubuntu6.1) ...
-
 olesya@olesya-k:~$ wget -O- https://www.virtualbox.org/download/oracle_vbox_2016.asc | sudo gpg --yes --output /usr/share/keyrings/oracle-virtualbox-2016.gpg --dearmor
 --2024-03-27 12:05:08--  https://www.virtualbox.org/download/oracle_vbox_2016.asc
-
 olesya@olesya-k:~$ sudo apt update
-100 packages can be upgraded. Run 'apt list --upgradable' to see them.
-
 olesya@olesya-k:~$ sudo dpkg -r virtualbox-7.0
-(Reading database ... 149148 files and directories currently installed.)
 Removing virtualbox-7.0 (7.0.14-161095~Ubuntu~jammy) ...
-Processing triggers for shared-mime-info (2.2-1) ...
-Processing triggers for hicolor-icon-theme (0.17-2) ...
-Processing triggers for mailcap (3.70+nmu1ubuntu1) ...
-Processing triggers for gnome-menus (3.36.0-1.1ubuntu1) ...
-Processing triggers for desktop-file-utils (0.26-1ubuntu5) ...
 
 
