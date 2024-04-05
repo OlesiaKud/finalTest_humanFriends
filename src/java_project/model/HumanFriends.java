@@ -1,4 +1,4 @@
-package model;
+package java_project.model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -6,13 +6,16 @@ import java.util.List;
 
 public abstract class HumanFriends {
     private String name;
-    private LocalDate birth_date;
+    private String birth_date;
     private List<String> command;
+    private Integer animalId;
 
-    public HumanFriends(String name, LocalDate birth_date) {
+
+    public HumanFriends(String name, String birth_date, List<String> command, Integer animalId) {
         this.name = name;
         this.birth_date = birth_date;
-        this.command = new ArrayList<>();
+        this.command = command;
+        this.animalId = animalId;
     }
 
     public String getName() {
@@ -23,11 +26,11 @@ public abstract class HumanFriends {
         this.name = name;
     }
 
-    public LocalDate getBirth_date() {
+    public String getBirth_date() {
         return birth_date;
     }
 
-    public void setBirth_date(LocalDate birth_date) {
+    public void setBirth_date(String birth_date) {
         this.birth_date = birth_date;
     }
 
@@ -40,4 +43,14 @@ public abstract class HumanFriends {
         this.command = command;
     }
 
+    public Integer getAnimalId() {
+        return animalId;
+    }
+
+    public void setAnimalId(Integer animalId) {
+        this.animalId = animalId;
+    }
+    public void addCommand(String newCommand) {
+        command.add(newCommand);
+    }
 }
