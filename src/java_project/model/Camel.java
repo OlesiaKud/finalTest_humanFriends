@@ -13,9 +13,9 @@ public class Camel extends PackAnimals {
     @Override
     public String toString() {
         return "Верблюд {" +
-                "кличка ='" + super.getName() + '\'' +
-                ", дата рождения ='" + super.getBirth_date() + '\'' +
-                ", команды ='" + super.getCommand() + '\'' +
+                "кличка:" + super.getName() +
+                ", дата рождения: " + super.getBirth_date() +
+                ", команды: " + super.getCommand() +
                 '}';
     }
 }

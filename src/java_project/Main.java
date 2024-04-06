@@ -1,6 +1,9 @@
 package java_project;
 
+import java_project.controller.AnimalController;
 import java_project.service.AnimalService;
+import java_project.view.View;
+
 import java.util.List;
 
 
@@ -28,11 +31,12 @@ public class Main {
 
 
 //        System.out.println(as.getAll());
-        as.getAllByBirthDate();
-        System.out.println(as.getAll());
-//
-        as.teachCommand("Fido", "gav!");
-        System.out.println(as.getAnimalsCount());
-//        as.showCommand("Fido");
+//        as.getAllByBirthDate();
+//        System.out.println(as.getAll());
+//        as.teachCommand("Fido", "gav!");
+//        System.out.println(as.getAnimalsCount());
+//        AnimalController ac = new AnimalController();
+        View v = new View();
+        v.getView();
     }
 }

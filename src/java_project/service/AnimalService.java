@@ -53,6 +53,7 @@ public class AnimalService implements Service {
                 break;
             default:
                 System.out.println("Укажите корректный вид животного.");
+                break;
         }
         if (newAnimal != null) {
             humanFriends.add(newAnimal);
@@ -61,17 +62,19 @@ public class AnimalService implements Service {
     }
 
     @Override
-    public void showCommand(String name) {
+    public String showCommand(String name) {
+        StringBuilder sb = new StringBuilder();
         for (HumanFriends humanFriend : humanFriends) {
             if (humanFriend.getName().equalsIgnoreCase(name)) {
-                System.out.println("Команды, которые выполняет " + name + ":");
+                sb. append("Команды животного:"); // System.out.println("Команды, которые выполняет " + name + ":");
                 for (String command : humanFriend.getCommand()) {
-                    System.out.println(command);
+                    sb.append(" ");
+                    sb.append(command);
                 }
-//            } else {
-//                System.out.println("Животное не найдено.");
+            } else {
+                sb.append("Животное не найдено.");
             }
-        }
+        }return sb.toString();
     }
 
     @Override
@@ -94,10 +97,9 @@ public class AnimalService implements Service {
     @Override
     public void getAllByBirthDate() {
         Collections.sort(humanFriends, Comparator.comparing(HumanFriends::getBirth_date));
-
         System.out.println("Список животных по дате рождения:");
         for (HumanFriends h_Friends : humanFriends) {
-            System.out.println(humanFriends);
+            System.out.println(h_Friends);
         }
     }
 

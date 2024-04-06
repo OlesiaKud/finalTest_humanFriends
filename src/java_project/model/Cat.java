@@ -13,9 +13,9 @@ public class Cat extends Pets {
     @Override
     public String toString() {
         return "Кошка {" +
-                "кличка ='" + super.getName() + '\'' +
-                ", дата рождения ='" + super.getBirth_date() + '\'' +
-                ", команды ='" + super.getCommand() + '\'' +
+                "кличка:" + super.getName() +
+                ", дата рождения: " + super.getBirth_date() +
+                ", команды: " + super.getCommand() +
                 '}';
     }
 }

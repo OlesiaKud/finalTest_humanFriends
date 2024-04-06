@@ -11,9 +11,9 @@ public class Hamster extends Pets {
     @Override
     public String toString() {
         return "Хомяк {" +
-                "кличка ='" + super.getName() + '\'' +
-                ", дата рождения ='" + super.getBirth_date() + '\'' +
-                ", команды ='" + super.getCommand() + '\'' +
+                "кличка:" + super.getName() +
+                ", дата рождения: " + super.getBirth_date() +
+                ", команды: " + super.getCommand() +
                 '}';
     }
 }

@@ -13,9 +13,9 @@ public class Donkey extends PackAnimals {
     @Override
     public String toString() {
         return "Осёл {" +
-                "кличка ='" + super.getName() + '\'' +
-                ", дата рождения ='" + super.getBirth_date() + '\'' +
-                ", команды ='" + super.getCommand() + '\'' +
+                "кличка:" + super.getName() +
+                ", дата рождения: " + super.getBirth_date() +
+                ", команды: " + super.getCommand() +
                 '}';
     }
 }
