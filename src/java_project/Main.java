@@ -32,33 +32,32 @@ public class Main {
 //        as.createNewAnimal(5, "Sahara", "2015-08-14", new ArrayList<>(List.of("Walk", "Run")));
 
 
+//
+//// так работают все команды, проблема с консольным решением
+////         1 создание животного
+//        as.createNewAnimal(1, "кусь", "2022-01-02",  new ArrayList<>(List.of("мяу!", "тссс")));
+//
+////          2 список команд одного животного
+//        System.out.println("\n список команд одного животного");
+//        System.out.println(as.showCommand("Fido"));
+//        System.out.println();
+//        System.out.println(as.showCommand("кусь"));
+//
+////          3 обучение новым командам
+//        System.out.println("\n обучение новым командам");
+//        as.teachCommand("кусь", "ням");
+//
+////          4 список по дате рождения
+//        as.getAllByBirthDate();
+//        System.out.println(as.getAll());
+//
+////          5 кол-во животных
+//        System.out.println("\n кол-во животных");
+//        System.out.println(as.getAnimalsCount());
 
-// так работают все команды, проблема с консольным решением
-//         1 создание животного
-        as.createNewAnimal(1, "кусь", "2022-01-02",  new ArrayList<>(List.of("мяу!", "тссс")));
-
-//          2 список команд одного животного
-        System.out.println();
-        System.out.println(as.showCommand("Fido"));
-        System.out.println();
-        System.out.println(as.showCommand("кусь"));
-
-//          3 обучение новым командам
-        System.out.println();
-        as.teachCommand("кусь", "ням");
-
-//          4 список по дате рождения
-        System.out.println();
-        as.getAllByBirthDate();
-        System.out.println(as.getAll());
-
-//          5  кол-во животных
-        System.out.println();
-        System.out.println(as.getAnimalsCount());
-
+//       6 ввод с консоли
         View v = new View();
         v.getView();
-
 
     }
 }

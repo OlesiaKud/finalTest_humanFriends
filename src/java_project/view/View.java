@@ -20,18 +20,23 @@ public class View {
         switch (choice) {
             case 1:
                 ac.createNewAnimal();
+                getView();
                 break;
             case 2:
                 ac.showCommand();
+                getView();
                 break;
             case 3:
                 ac.teachCommand();
+                getView();
                 break;
             case 4:
                 ac.getAllByBirthDate();
+                getView();
                 break;
             case 5:
                 ac.getAnimalsCount();
+                getView();
             case 0:
                 break;
             default:
@@ -52,7 +57,7 @@ public class View {
         return res;
     }
     public String getBirthDate(){
-        System.out.println("Введите дату рождения животного в формате ГГГГ-ММ-ДДЖ");
+        System.out.println("Введите дату рождения животного в формате ГГГГ-ММ-ДД");
         Scanner sc = new Scanner(System.in);
         String res = sc.nextLine();
         return res;

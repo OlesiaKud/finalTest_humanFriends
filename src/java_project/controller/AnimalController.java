@@ -21,7 +21,7 @@ public class AnimalController implements Controller<HumanFriends> {
         String command2 = view.teachCommand();
         List<String> command = new ArrayList<>();
         command.add(command1);
-        command.add(command1);
+        command.add(command2);
         as.createNewAnimal(choice, name, birth_date, command);
     }
 
