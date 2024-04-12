@@ -7,11 +7,11 @@ import java.util.List;
 public abstract class HumanFriends {
     private String name;
     private String birth_date;
-    private List<String> command;
+    public ArrayList<String> command;
     private Integer animalId;
 
 
-    public HumanFriends(String name, String birth_date, List<String> command, Integer animalId) {
+    public HumanFriends(String name, String birth_date, ArrayList<String> command, Integer animalId) {
         this.name = name;
         this.birth_date = birth_date;
         this.command = command;
@@ -35,11 +35,11 @@ public abstract class HumanFriends {
     }
 
 
-    public List<String> getCommand() {
+    public ArrayList<String> getCommand() {
         return command;
     }
 
-    public void setCommand(List<String> command) {
+    public void setCommand(ArrayList<String> command) {
         this.command = command;
     }
 

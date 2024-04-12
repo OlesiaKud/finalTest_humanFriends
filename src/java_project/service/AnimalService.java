@@ -32,24 +32,25 @@ public class AnimalService implements Service {
         HumanFriends newAnimal = null;
         switch (choice) {
             case 1:
-                newAnimal = new Cat(name, birth_date, command, ++countMaxId);
+                newAnimal = new Cat(name, birth_date, (ArrayList<String>) command, ++countMaxId);
                 break;
             case 2:
-                newAnimal = new Dog(name, birth_date, command, ++countMaxId);
+                newAnimal = new Dog(name, birth_date, (ArrayList<String>)command, ++countMaxId);
                 break;
             case 3:
-                newAnimal = new Hamster(name, birth_date, command, ++countMaxId);
+                newAnimal = new Hamster(name, birth_date, (ArrayList<String>)command, ++countMaxId);
                 break;
 
             case 4:
-                newAnimal = new Horse(name, birth_date, command, ++countMaxId);
+                newAnimal = new Horse(name, birth_date, (ArrayList<String>)command, ++countMaxId);
                 break;
 
             case 5:
-                newAnimal = new Donkey(name, birth_date, command, ++countMaxId);
+                newAnimal = new Donkey(name, birth_date, (ArrayList<String>)command, ++countMaxId);
                 break;
             case 6:
-                newAnimal = new Camel(name, birth_date, command, ++countMaxId);
+                newAnimal = new Camel(name, birth_date, (ArrayList<String>)command, ++countMaxId);
+//                newAnimal = new Camel(name, birth_date, command, ++countMaxId);
                 break;
             default:
                 System.out.println("Укажите корректный вид животного.");
@@ -57,49 +58,48 @@ public class AnimalService implements Service {
         }
         if (newAnimal != null) {
             humanFriends.add(newAnimal);
-            System.out.println("ОК! Животное добавлено");
+            System.out.println("ОК! Добавлено новое животное " + name);
         }
     }
 
     @Override
     public String showCommand(String name) {
         StringBuilder sb = new StringBuilder();
-        for (HumanFriends humanFriend : humanFriends) {
-            if (humanFriend.getName().equalsIgnoreCase(name)) {
-                sb. append("Команды животного:"); // System.out.println("Команды, которые выполняет " + name + ":");
-                for (String command : humanFriend.getCommand()) {
+        System.out.println(name);
+        for (HumanFriends hF : humanFriends) {
+            if (hF.getName().equalsIgnoreCase(name)) {
+                sb.append("Команды животного:");
+                for (String command : hF.getCommand()) {
                     sb.append(" ");
                     sb.append(command);
                 }
-            } else {
-                sb.append("Животное не найдено.");
             }
-        }return sb.toString();
+        }
+        if (!sb.isEmpty())
+            return sb.toString();
+        else
+            return "Животное не найдено.";
+
     }
 
     @Override
     public List<String> teachCommand(String name, String newCommand) {
         List<String> allCommands = new ArrayList<>();
-        for (HumanFriends humanFriend : humanFriends) {
-            if (humanFriend.getName().equalsIgnoreCase(name)) {
-
-//                allCommands.add(newCommand);
-                humanFriend.addCommand(newCommand);
-                allCommands.add(humanFriend.getCommand().toString());
-            }
-//            else {
-//                System.out.println("Животное не найдено.");
-//            }
+        for (HumanFriends hF : humanFriends) {
+            if (hF.getName().equalsIgnoreCase(name)) {
+                hF.addCommand(newCommand);
+            } allCommands.add(hF.getCommand().toString());
         }
-        return allCommands;
+        return allCommands.isEmpty() ? Collections.singletonList("Животное не найдено.") : allCommands;
+
     }
 
     @Override
     public void getAllByBirthDate() {
         Collections.sort(humanFriends, Comparator.comparing(HumanFriends::getBirth_date));
         System.out.println("Список животных по дате рождения:");
-        for (HumanFriends h_Friends : humanFriends) {
-            System.out.println(h_Friends);
+        for (HumanFriends hFriends : humanFriends) {
+            System.out.println(hFriends);
         }
     }
 

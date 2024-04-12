@@ -46,19 +46,19 @@ public class View {
         return res;
     }
     public String getName() {
-        System.out.println("Введите имя животного.");
+        System.out.println("Введите имя животного:");
         Scanner sc = new Scanner(System.in);
         String res = sc.nextLine();
         return res;
     }
     public String getBirthDate(){
-        System.out.println("Введите дату рождения животного.");
+        System.out.println("Введите дату рождения животного в формате ГГГГ-ММ-ДДЖ");
         Scanner sc = new Scanner(System.in);
         String res = sc.nextLine();
         return res;
     }
     public String teachCommand() {
-        System.out.println("Введите команду.");
+        System.out.println("Введите команду:");
         Scanner sc = new Scanner(System.in);
         String res = sc.nextLine();
         return res;

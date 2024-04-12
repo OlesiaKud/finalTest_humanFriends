@@ -1,10 +1,11 @@
 package java_project.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Hamster extends Pets {
 
-    public Hamster(String name, String birth_date, List<String> command, Integer animalId) {
+    public Hamster(String name, String birth_date, ArrayList<String> command, Integer animalId) {
         super(name, birth_date, command, animalId);
     }
 

@@ -27,9 +27,11 @@ public class AnimalController implements Controller<HumanFriends> {
 
     @Override
     public void showCommand() {
+        System.out.println("Команды животного.");
         String name = view.getName();
-        String res = as.showCommand(name);
-        view.printOnConsole(res);
+        System.out.println(name);
+        String showCommands = as.showCommand(name);
+        view.printOnConsole(showCommands);
     }
 
     @Override
